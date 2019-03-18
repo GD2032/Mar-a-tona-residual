@@ -5,7 +5,6 @@ using UnityEngine;
 public class comportamentoCamera : MonoBehaviour
 {
     public float speed;
-    public float ymax = 4.769569f;
     public GameObject personagem;
     float posicaoPersonagem;
     float variavel;
@@ -23,18 +22,6 @@ public class comportamentoCamera : MonoBehaviour
         {
             transform.Translate(Vector3.up * variavel * speed * Time.deltaTime);
         }
-        Limite();
 
-    }
-    void Limite()
-    {
-        if(transform.position.y > ymax)
-        {
-            transform.position = new Vector3(transform.position.x, ymax, -10); 
-        }
-        if (transform.position.y < -ymax)
-        {
-            transform.position = new Vector3(transform.position.x, -ymax, -10);
-        }
     }
 }
