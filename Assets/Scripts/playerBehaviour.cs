@@ -7,11 +7,12 @@ public class playerBehaviour : MonoBehaviour
     public float speed;
     public static bool movimento;
 
-    public float xmax;
-    public float ymax;
+    public float xmax = 9.43f;
+    public float ymax = 9.04f;
+    public float ymin;
 
-    public float movimentoEixoX;
-    public float movimentoEixoY;
+    private float movimentoEixoX;
+    private float movimentoEixoY;
 
     void Start()
     {
@@ -20,10 +21,11 @@ public class playerBehaviour : MonoBehaviour
 
     void Update()
     {
-        movimentacao();
+        Movimentacao();
+        Limite();
     }
 
-    void movimentacao()
+    void Movimentacao()
     {
         movimentoEixoX = Input.GetAxis("Horizontal");
         movimentoEixoY = Input.GetAxis("Vertical");
@@ -33,4 +35,23 @@ public class playerBehaviour : MonoBehaviour
             transform.Translate(Vector3.up * movimentoEixoY * speed * Time.deltaTime);
         }
     }
-}
+    void Limite()
+    {
+        if(transform.position.x < xmax)
+        {
+         transform.position = new Vector3(xmax, transform.position.y);
+        }
+        else if (transform.position.x > -xmax)
+        {
+            transform.position = new Vector3(-xmax, transform.position.y);
+        }
+        if(transform.position.y > ymax)
+        {
+            transform.position = new Vector3(transform.position.x, ymax);
+        }
+        if (transform.position.y < -ymax)
+        {
+            transform.position = new Vector3(transform.position.x,-ymax);
+        }
+    }
+ }
