@@ -24,8 +24,9 @@ public class playerBehaviour : MonoBehaviour
 
     void Update()
     {score += Time.deltaTime * speed;
-   GetComponent<Rigidbody2D>().velocity =new Vector2  (6,0);
+
         movimentacao();
+        
     }
 
     void movimentacao()
