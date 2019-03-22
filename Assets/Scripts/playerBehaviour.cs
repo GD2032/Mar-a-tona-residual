@@ -1,57 +1,42 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerBehaviour : MonoBehaviour
 {
     public float speed;
     public static bool movimento;
 
-    public float xmax = 9.43f;
-    public float ymax = 9.04f;
-    public float ymin;
+    public float xmax;
+    public Text scoreTeste;
+    public float score;
+    public float ymax;
 
-    private float movimentoEixoX;
-    private float movimentoEixoY;
+    public float movimentoEixoX;
+    public float movimentoEixoY;
 
     void Start()
     {
         movimento = true;
+        
     }
 
     void Update()
-    {
-        Movimentacao();
-        Limite();
+    {score += Time.deltaTime * speed;
+   GetComponent<Rigidbody2D>().velocity =new Vector2  (6,0);
+        movimentacao();
     }
 
-    void Movimentacao()
+    void movimentacao()
     {
         movimentoEixoX = Input.GetAxis("Horizontal");
         movimentoEixoY = Input.GetAxis("Vertical");
         if (movimento)
-        {
+        { scoreTeste.text = score.ToString();
             transform.Translate(Vector3.right * movimentoEixoX * speed * Time.deltaTime);
             transform.Translate(Vector3.up * movimentoEixoY * speed * Time.deltaTime);
+           
         }
     }
-    void Limite()
-    {
-        if(transform.position.x < xmax)
-        {
-         transform.position = new Vector3(xmax, transform.position.y);
-        }
-        else if (transform.position.x > -xmax)
-        {
-            transform.position = new Vector3(-xmax, transform.position.y);
-        }
-        if(transform.position.y > ymax)
-        {
-            transform.position = new Vector3(transform.position.x, ymax);
-        }
-        if (transform.position.y < -ymax)
-        {
-            transform.position = new Vector3(transform.position.x,-ymax);
-        }
-    }
- }
+}
