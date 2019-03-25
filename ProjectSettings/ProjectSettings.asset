@@ -566,6 +566,7 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
+    Collab: 1
     UNet: 1
   luminIcon:
     m_Name: 
@@ -586,10 +587,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 8d526339-14e7-4803-9733-574122615328
+  cloudProjectId: 3e8eb5c6-37a0-4779-9696-262f149c38af
   framebufferDepthMemorylessMode: 0
-  projectName: Mar a tona residual
-  organizationId: gabrieldias2032
+  projectName: Golfinho
+  organizationId: unity_qgjzd9u-70ddxw
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
